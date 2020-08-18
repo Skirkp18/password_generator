@@ -150,9 +150,17 @@ function getUserOptions () {
 function generatePassword(userOptions) {
   var password = [];
 
+  console.log(parseInt(Math.random() * 26));
+  
+  // for satement to generate 
+
   // if lower
-    // push a random lower char to password 
-    // add lowerCharsArray to userOptionalChars
+  	if (expectLowerCaseChars === true) {
+		    // push a random lower char to password 
+			push.password(lowerCasedCharacters.indexOf(Math.random() * 26));
+  
+  	}
+  	
 
   // if upper
     // push a random upper char to password 
