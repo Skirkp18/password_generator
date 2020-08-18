@@ -113,6 +113,25 @@ var userOptionalChars = [];
 
 function getUserOptions () {
    // get options form user and store in vars
+   var numChars = prompt("How many charcters do you want your password to be?");
+    if (numChars < 8 || numChars > 128) {
+      alert("Your password must be between 8 and 128 characters long")
+    }
+    else {
+   var expectSpecialChars = confirm("Click 'OK' to use special charcters in your password.")
+   var expectNumericChars = confirm("Click 'OK' to use numerical charcters in your password.")
+   var expectLowerCaseChars = confirm("Click 'OK' to use lower case charcters in your password.")
+   var expectUpperCaseChars = confirm("Click 'OK' to use upper case characters in your password.")
+
+      console.log(expectSpecialChars)
+      console.log(expectNumericChars)
+      console.log(expectLowerCaseChars)
+      console.log(expectUpperCaseChars)
+
+      if (expectSpecialChars === false && expectNumericChars === false && expectLowerCaseChars === false & expectUpperCaseChars === false) {
+        alert("You must choose at least one option 'Special Characters', 'Numeric Characters', 'Lower Case Characters' or 'Upper Case Characters'.")
+      }
+    }
 
   // check for length (should be longer than 8 and shorter than 128)
 
@@ -160,7 +179,7 @@ function generatePassword(userOptions) {
 
 // ============= function calls ==================
 
-// getUserOptions();
+getUserOptions();
 
 // generatePassword(userOptions);
  
