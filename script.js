@@ -113,38 +113,38 @@ var userOptionalChars = [];
 
 function getUserOptions () {
    // get options form user and store in vars
-   var numChars = prompt("How many charcters do you want your password to be?");
-    if (numChars < 8 || numChars > 128) {
-      alert("Your password must be between 8 and 128 characters long")
+   
+     // check for length (should be longer than 8 and shorter than 128)
+   var numChars = prompt("How many charcters do you want your password to be? (Must be between '8' and '128' characters)");
+    if(numChars < 8 || numChars > 128) {
+     while (numChars < 8 || numChars >128){
+     	 alert("Your password must be between 8 and 128 characters long. Please try again");
+   			var numChars = prompt("How many charcters do you want your password to be? (Must be between '8' and '128' characters)");
     }
-    else {
+}
+    if(numChars < 8 || numChars > 128) {
+		  // check if user wants special characters
    var expectSpecialChars = confirm("Click 'OK' to use special charcters in your password.")
+    	 // check if user wants numeric characters
    var expectNumericChars = confirm("Click 'OK' to use numerical charcters in your password.")
+    	 // check if user wants lower case   
    var expectLowerCaseChars = confirm("Click 'OK' to use lower case charcters in your password.")
+    	 // check if user wants upper case charaters
    var expectUpperCaseChars = confirm("Click 'OK' to use upper case characters in your password.")
 
       console.log(expectSpecialChars)
       console.log(expectNumericChars)
       console.log(expectLowerCaseChars)
       console.log(expectUpperCaseChars)
+	  
+	    // check that atleast one is true
 
-      if (expectSpecialChars === false && expectNumericChars === false && expectLowerCaseChars === false & expectUpperCaseChars === false) {
+      while (expectSpecialChars === false && expectNumericChars === false && expectLowerCaseChars === false & expectUpperCaseChars === false) {
+		      // alert user must have at least one option
         alert("You must choose at least one option 'Special Characters', 'Numeric Characters', 'Lower Case Characters' or 'Upper Case Characters'.")
+		
       }
     }
-
-  // check for length (should be longer than 8 and shorter than 128)
-
-  // check for special characters
-  // check if numeric characters
-  // check if lower case characters
-  // check if upper case charaters
-
-  // check that atleast one is true
-    // else alert user
-
-  // must have one of them
-
 }
 
 function generatePassword(userOptions) {
