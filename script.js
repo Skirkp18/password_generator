@@ -112,9 +112,8 @@ function clickButton() {
     // get options form user and store in vars
 
     // check for length (should be longer than 8 and shorter than 128)
-    var numChars = 0;
+    var numChars = prompt("How many charcters do you want your password to be? (Must be between '8' and '128' characters)");
     if (numChars < 8 || numChars > 128) {
-      prompt("How many charcters do you want your password to be? (Must be between '8' and '128' characters)");
       while (numChars < 8 || numChars > 128) {
         alert("Your password must be between 8 and 128 characters long. Please try again");
         var numChars = prompt("How many charcters do you want your password to be? (Must be between '8' and '128' characters)");
@@ -173,6 +172,8 @@ function clickButton() {
     if (expectLowerCaseChars === true) {
       // push a random lower char to password 
       push.password(lowerCasedCharacters.indexOf(Math.random() * 26));
+
+    
 
     }
 
