@@ -163,13 +163,6 @@ function writePassword() {
 
   function generatePassword() {
     var password = "";
-    console.log(expectLowerCaseChars, expectNumericChars, expectSpecialChars, expectUpperCaseChars)
-    console.log(parseInt(Math.random() * 26));
-    // console.log(expectSpecialChars)
-    //     console.log(expectNumericChars)
-    //     console.log(expectLowerCaseChars)
-    //     console.log(expectUpperCaseChars)
-    //     console.log(numChars)
 
     if (expectUpperCaseChars) {
       userOptionalChars = userOptionalChars.concat(upperCasedCharacters);
@@ -186,30 +179,15 @@ function writePassword() {
     
     console.log(userOptionalChars);
     // for satement to generate 
-    for (var i = 0; i <= numChars; i++) {
+    for (var i = 1; i <= numChars; i++) {
 
       // var num = a random number between 0 and the length of userOptionalChars
+	  var num = Math.floor(Math.random() * userOptionalChars.length) + 1;
+	  
       // password += userOptionalChars[num]
-
-
-      // if upper
-      // push a random upper char to password 
-      // add upperCharsArray to userOptionalChars
-
-
-      // if special
-      // push a random special char to password 
-      // add specialCharsArray to userOptionalChars
-
-
-      // if numeric
-      // push a random numeric char to password 
-      // add numericCharsArray to userOptionalChars
-
-      // for loop between start number of elements in password to the requested number of chars
-
-      // mutate the array to a string
-      // return password string
+		password += userOptionalChars[num];
+		
+		console.log(password)
 
 
 
@@ -217,17 +195,7 @@ function writePassword() {
     return password;
   }
 
-  // ============= function calls ==================
 
-
-
-
-
-
-
-
-
-
-
+  
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
