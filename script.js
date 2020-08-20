@@ -3,7 +3,8 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = clickButton();
+  getUserOptions();
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -12,8 +13,7 @@ function writePassword() {
 
 
 
-// returns a string
-function clickButton() {
+
 
   //  ==============    var definitions   ==================
 
@@ -112,11 +112,11 @@ function clickButton() {
     // get options form user and store in vars
 
     // check for length (should be longer than 8 and shorter than 128)
-     numChars = prompt("How many charcters do you want your password to be? (Must be between '8' and '128' characters)");
+    numChars = prompt("How many charcters do you want your password to be? (Must be between '8' and '128' characters)");
     if (numChars < 8 || numChars > 128) {
       while (numChars < 8 || numChars > 128) {
         alert("Your password must be between 8 and 128 characters long. Please try again");
-         numChars = prompt("How many charcters do you want your password to be? (Must be between '8' and '128' characters)");
+        numChars = prompt("How many charcters do you want your password to be? (Must be between '8' and '128' characters)");
       }
     }
 
@@ -127,103 +127,107 @@ function clickButton() {
     expectUpperCaseChars = false;
 
     // if statement
-    if (expectSpecialChars === false && expectNumericChars === false && expectLowerCaseChars === false & expectUpperCaseChars === false) {
+    if (expectSpecialChars === false && expectNumericChars === false && expectLowerCaseChars === false && expectUpperCaseChars === false) {
 
       // check if user wants special characters
-       expectSpecialChars = confirm("Click 'OK' to use special charcters in your password.")
+      expectSpecialChars = confirm("Click 'OK' to use special charcters in your password.")
       // check if user wants numeric characters
-       expectNumericChars = confirm("Click 'OK' to use numerical charcters in your password.")
+      expectNumericChars = confirm("Click 'OK' to use numerical charcters in your password.")
       // check if user wants lower case   
-       expectLowerCaseChars = confirm("Click 'OK' to use lower case charcters in your password.")
+      expectLowerCaseChars = confirm("Click 'OK' to use lower case charcters in your password.")
       // check if user wants upper case charaters
-       expectUpperCaseChars = confirm("Click 'OK' to use upper case characters in your password.")
+      expectUpperCaseChars = confirm("Click 'OK' to use upper case characters in your password.")
 
 
       // check that atleast one is true
 
-      while (expectSpecialChars === false && expectNumericChars === false && expectLowerCaseChars === false & expectUpperCaseChars === false) {
+      while (expectSpecialChars === false && expectNumericChars === false && expectLowerCaseChars === false && expectUpperCaseChars === false) {
         // alert user must have at least one option
         alert("You must choose at least one option 'Special Characters', 'Numeric Characters', 'Lower Case Characters' or 'Upper Case Characters'.")
 
         // check if user wants special characters
-         expectSpecialChars = confirm("Click 'OK' to use special charcters in your password.")
+        expectSpecialChars = confirm("Click 'OK' to use special charcters in your password.")
         // check if user wants numeric characters
-         expectNumericChars = confirm("Click 'OK' to use numerical charcters in your password.")
+        expectNumericChars = confirm("Click 'OK' to use numerical charcters in your password.")
         // check if user wants lower case   
-         expectLowerCaseChars = confirm("Click 'OK' to use lower case charcters in your password.")
+        expectLowerCaseChars = confirm("Click 'OK' to use lower case charcters in your password.")
         // check if user wants upper case charaters
-         expectUpperCaseChars = confirm("Click 'OK' to use upper case characters in your password.")
+        expectUpperCaseChars = confirm("Click 'OK' to use upper case characters in your password.")
 
       }
     }
-
-        // console.log(expectSpecialChars)
-        // console.log(expectNumericChars)
-        // console.log(expectLowerCaseChars)
-        // console.log(expectUpperCaseChars)
-
   }
 
+  
 
-  function generatePassword(getUserOptions) {
-    var password = [];
 
-    // console.log(parseInt(Math.random() * 26));
+  function generatePassword() {
+    var password = "";
+    console.log(expectLowerCaseChars, expectNumericChars, expectSpecialChars, expectUpperCaseChars)
+    console.log(parseInt(Math.random() * 26));
     // console.log(expectSpecialChars)
     //     console.log(expectNumericChars)
     //     console.log(expectLowerCaseChars)
     //     console.log(expectUpperCaseChars)
     //     console.log(numChars)
 
-
+    if (expectUpperCaseChars) {
+      userOptionalChars = userOptionalChars.concat(upperCasedCharacters);
+    }
+    if (expectLowerCaseChars) {
+      userOptionalChars = userOptionalChars.concat(lowerCasedCharacters);
+    }
+    if (expectNumericChars) {
+      userOptionalChars = userOptionalChars.concat(numericCharacters);
+    }
+    if (expectSpecialChars) {
+      userOptionalChars = userOptionalChars.concat(specialCharacters);
+    }
+    
+    console.log(userOptionalChars);
     // for satement to generate 
+    for (var i = 0; i <= numChars; i++) {
 
-    // if lower
-    if (expectLowerCaseChars === true) {
-      // push a random lower char to password 
-      password.push(lowerCasedCharacters(parseInt(Math.random() * 26)));
+      // var num = a random number between 0 and the length of userOptionalChars
+      // password += userOptionalChars[num]
 
-      console.log("did i get this far?");
-      console.log(password);
+
+      // if upper
+      // push a random upper char to password 
+      // add upperCharsArray to userOptionalChars
+
+
+      // if special
+      // push a random special char to password 
+      // add specialCharsArray to userOptionalChars
+
+
+      // if numeric
+      // push a random numeric char to password 
+      // add numericCharsArray to userOptionalChars
+
+      // for loop between start number of elements in password to the requested number of chars
+
+      // mutate the array to a string
+      // return password string
+
+
 
     }
-
-
-    // if upper
-    // push a random upper char to password 
-    // add upperCharsArray to userOptionalChars
-
-
-    // if special
-    // push a random special char to password 
-    // add specialCharsArray to userOptionalChars
-
-
-    // if numeric
-    // push a random numeric char to password 
-    // add numericCharsArray to userOptionalChars
-
-    // for loop between start number of elements in password to the requested number of chars
-
-    // mutate the array to a string
-    // return password string
-
-
-
+    return password;
   }
 
   // ============= function calls ==================
 
-  getUserOptions();
-
-  generatePassword(getUserOptions);
 
 
 
 
 
 
-};
+
+
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
