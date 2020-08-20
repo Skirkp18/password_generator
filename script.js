@@ -103,6 +103,8 @@ function writePassword() {
     'Y',
     'Z'
   ];
+  
+  
 
   var userOptionalChars = [];
 
@@ -162,7 +164,8 @@ function writePassword() {
 
 
   function generatePassword() {
-    var password = "";
+	userOptionalChars = [];
+    password = "";
 
     if (expectUpperCaseChars) {
       userOptionalChars = userOptionalChars.concat(upperCasedCharacters);
@@ -177,6 +180,7 @@ function writePassword() {
       userOptionalChars = userOptionalChars.concat(specialCharacters);
     }
     
+	console.log(expectNumericChars);
     console.log(userOptionalChars);
     // for satement to generate 
     for (var i = 1; i <= numChars; i++) {
