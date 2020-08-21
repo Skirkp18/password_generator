@@ -167,35 +167,43 @@ function writePassword() {
 	userOptionalChars = [];
     password = '';
 
+    // if true add characters to array
     if (expectUpperCaseChars) {
       userOptionalChars = userOptionalChars.concat(upperCasedCharacters);
     }
+
+     // if true add characters to array
     if (expectLowerCaseChars) {
       userOptionalChars = userOptionalChars.concat(lowerCasedCharacters);
-    }
+    }  
+
+    // if true add characters to array
     if (expectNumericChars) {
       userOptionalChars = userOptionalChars.concat(numericCharacters);
     }
+
+    // if true add characters to array
     if (expectSpecialChars) {
       userOptionalChars = userOptionalChars.concat(specialCharacters);
     }
     
-    console.log(userOptionalChars);
+    // console.log(userOptionalChars);
     // for satement to generate 
     for (var i = 1; i <= numChars; i++) {
 
       // var num = a random number between 0 and the length of userOptionalChars
     var num = Math.floor(Math.random() * userOptionalChars.length - 0) +0;
-    console.log(num);
+    // console.log(num);
 	  
       // password += userOptionalChars[num]
 		password += userOptionalChars[num];
 		
-		console.log(password)
+		// console.log(password)
 
 
 
     }
+    // return the password genereated
     return password;
   }
 
